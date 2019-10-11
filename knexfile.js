@@ -1,7 +1,12 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/dad-blog',
+    connection: {
+      host: '127.0.0.1',
+      user: 'db_access',
+      password: 'freedom',
+      database: 'dad-blog'
+    },
     migrations: {
       directory: __dirname + '/db/migrations'
     },
@@ -20,3 +25,6 @@ module.exports = {
     }
   }
 }
+
+
+// 'postgres://localhost/dad-blog'
