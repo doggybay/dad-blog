@@ -4,13 +4,12 @@ exports.up = function(knex) {
     
     table.increments();
     table.string('title', 255).notNullable();
-    table.string('body', 255).notNullable();
+    table.text('body').notNullable();
     table.integer('user_id').notNullable().references('id').inTable('users');
-    table.date('created_at_date').notNullable();
-    table.time('created_at_time').notNullable();
+    table.string('created_at').notNullable();
   })
 };
 
 exports.down = function(knex) {
-  return knex.schema.droptTable("posts");
+  return knex.schema.dropTable("posts");
 };
