@@ -10,9 +10,14 @@ app.use(cors())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.json('Api works....')
+  res.send('Api works....')
+})
+
+app.get('/api/users', (req, res) => {
+  knex.raw('SELECT * FROM users').then(function (users) {
+    res.json(users.rows)
+  })
 })
 
 
-
-app.listen(port, `Listening on port ${port}`)
+app.listen(port, () => console.log(`Listening on port ${port}`))
