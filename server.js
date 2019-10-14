@@ -6,6 +6,8 @@ const port = 8000
 const logger = require('morgan')
 
 const users = require('./routes/users')
+const posts = require('./routes/posts')
+const comments = require('./routes/comments')
 
 const app = express()
 
@@ -19,6 +21,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api', users)
+app.use('/api', posts)
+app.use('/api', comments)
 
 // app.get('/api/users', (req, res) => {
 //   usersService.getAllUsers(res)

@@ -1,6 +1,5 @@
 const knex = require('../db/knex')
 
-
 exports.getAllPosts = (req, res) => {
 
   knex('posts').then(posts => res.json(posts))
@@ -20,7 +19,6 @@ exports.updateOnePost = (req, res) => {
   knex('posts').update({
     ...req.body
   }).where('id', req.params.id).returning('*').then(updatedPost => res.json(updatedPost))
-
 }
 
 exports.deleteOnePost = (req, res) => {
